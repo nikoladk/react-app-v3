@@ -9,8 +9,8 @@ describe('Header (BDD)', () => {
   it('Given authenticated user, When header renders, Then welcome text and badges are visible', () => {
     renderWithProviders(<Header />, { auth: { initialUser: MOCK_USER }, cart: { initialCount: 2 } });
 
-    expect(screen.getByText('Welcom, admin')).toBeInTheDocument();
+    expect(screen.getByText('Welcome, admin')).toBeInTheDocument();
     expect(screen.getByLabelText('2 notifications')).toBeInTheDocument();
-    expect(screen.getByLabelText('1 cart items')).toBeInTheDocument();
+    expect(screen.getByLabelText('2 cart items')).toBeInTheDocument();
   });
 });
