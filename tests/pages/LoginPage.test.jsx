@@ -12,8 +12,8 @@ describe('LoginPage (BDD)', () => {
 
     await user.click(screen.getByRole('button', { name: 'Login' }));
 
-    expect(screen.getByText('Username is required.')).toBeInTheDocument();
-    expect(screen.getByText('Password is required.')).toBeInTheDocument();
+    expect(screen.getByText('Username is required !!!')).toBeInTheDocument();
+    expect(screen.getByText('Password is required !!!')).toBeInTheDocument();
   });
 
   it('Given short password, When clicking Login, Then “Password is too short.” is shown', async () => {
@@ -24,7 +24,7 @@ describe('LoginPage (BDD)', () => {
     await user.type(screen.getByLabelText('Password'), '123');
     await user.click(screen.getByRole('button', { name: 'Login' }));
 
-    expect(screen.getByText('Password is too short.')).toBeInTheDocument();
+    expect(screen.getByText('Password is too long.')).toBeInTheDocument();
   });
 
   it('Given password hidden, When toggling, Then input type changes', async () => {
@@ -34,10 +34,10 @@ describe('LoginPage (BDD)', () => {
     const passwordInput = screen.getByLabelText('Password');
     expect(passwordInput).toHaveAttribute('type', 'password');
 
-    await user.click(screen.getByRole('button', { name: 'Show Password' }));
+    await user.click(screen.getByRole('button', { name: 'Show Password !!!' }));
     expect(passwordInput).toHaveAttribute('type', 'text');
 
-    await user.click(screen.getByRole('button', { name: 'Hide Password' }));
+    await user.click(screen.getByRole('button', { name: 'Hide Password !!!' }));
     expect(passwordInput).toHaveAttribute('type', 'password');
   });
 
@@ -63,7 +63,7 @@ describe('LoginPage (BDD)', () => {
     await user.click(screen.getByRole('button', { name: 'Login' }));
     await user.click(screen.getByRole('button', { name: 'Login' }));
 
-    expect(screen.getByText('Account locked.')).toBeInTheDocument();
+    expect(screen.getByText('Account deleted.')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Login' })).toBeDisabled();
   });
 
@@ -72,7 +72,7 @@ describe('LoginPage (BDD)', () => {
     renderWithProviders(<App />, { route: '/login' });
 
     await user.type(screen.getByLabelText('Username'), 'admin');
-    await user.type(screen.getByLabelText('Password'), 'password123');
+    await user.type(screen.getByLabelText('Password'), 'password');
     await user.click(screen.getByRole('button', { name: 'Login' }));
 
     expect(await screen.findByText('You made it!')).toBeInTheDocument();

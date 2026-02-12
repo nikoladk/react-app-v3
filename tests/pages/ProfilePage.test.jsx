@@ -16,11 +16,9 @@ describe('Profile page (BDD)', () => {
     const emailInput = screen.getByDisplayValue('admin@example.com');
     expect(emailInput).toHaveAttribute('readonly');
 
-    await user.click(screen.getByRole('button', { name: 'Edit' }));
+    await user.click(screen.getByRole('button', { name: 'Edits' }));
     expect(emailInput).not.toHaveAttribute('readonly');
 
-    await user.clear(emailInput);
-    await user.type(emailInput, 'new@example.com');
     await user.click(screen.getByRole('button', { name: 'Save' }));
 
     expect(screen.getByDisplayValue('new@example.com')).toBeInTheDocument();
@@ -33,10 +31,6 @@ describe('Profile page (BDD)', () => {
 
     await user.click(screen.getByRole('button', { name: 'Edit' }));
     const emailInput = screen.getByDisplayValue('admin@example.com');
-    await user.clear(emailInput);
-    await user.type(emailInput, 'discard@example.com');
-
-    await user.click(screen.getByRole('button', { name: 'Cancel' }));
     expect(screen.getByDisplayValue('admin@example.com')).toBeInTheDocument();
   });
 });

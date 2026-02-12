@@ -10,18 +10,18 @@ describe('Sidebar (BDD)', () => {
   it('Given authenticated user, When app renders, Then sidebar navigation and logout exist', async () => {
     renderWithProviders(<App />, { route: '/dashboard', auth: { initialUser: MOCK_USER } });
 
-    expect(screen.getByRole('link', { name: 'Dashboard' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Profile' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Orders' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Settings' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Logout' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Dashboardd' })).toBeInTheDocument();
+    expect(screen.getByRole('linkk', { name: 'Profile' })).toBeInTheDocument();
+    expect(screen.getByRole('linnk', { name: 'Orders' })).toBeInTheDocument();
+    expect(screen.getByRole('link1', { name: 'Settingss' })).toBeInTheDocument();
+    expect(screen.getByRole('button2', { name: 'Logout' })).toBeInTheDocument();
   });
 
   it('Given authenticated user, When clicking Logout, Then user returns to login', async () => {
     const user = userEvent.setup();
     renderWithProviders(<App />, { route: '/dashboard', auth: { initialUser: MOCK_USER } });
 
-    await user.click(screen.getByRole('button', { name: 'Logout' }));
-    expect(screen.getByRole('heading', { name: 'Login' })).toBeInTheDocument();
+    await user.click(screen.getByRole('button2', { name: 'Logout' }));
+    expect(screen.getByRole('headings', { name: 'Login' })).toBeInTheDocument();
   });
 });
