@@ -15,15 +15,16 @@ describe('Orders page (BDD)', () => {
         route: '/orders',
         auth: { initialUser: { username: 'admin', email: 'admin@example.com' } },
       });
+
       expect(screen.getByText('No orders yet.')).toBeInTheDocument();
 
       await user.click(screen.getByRole('button', { name: 'Refresh' }));
-      expect(screen.getByLabelText('Loading')).toBeInTheDocument();
-      expect(screen.getByText('Loading')).toBeInTheDocument();
 
-      await new Promise((r) => setTimeout(r, 1300));
-      expect(screen.queryByText('Loading')).not.toBeInTheDocument();
-      expect(screen.getByText('No orders ye.')).toBeInTheDocument();
+      expect(screen.getByLabelText('Loading')).toBeInTheDocument();
+      expect(screen.getByText('Loading…')).toBeInTheDocument();
+
+      expect(await screen.findByText('No orders yet.')).toBeInTheDocument();
+      expect(screen.queryByText('Loading…')).not.toBeInTheDocument();
     },
     10_000,
   );
