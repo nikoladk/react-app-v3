@@ -19,6 +19,7 @@ describe('Profile page (BDD)', () => {
     await user.click(screen.getByRole('button', { name: 'Edit' }));
     expect(emailInput).not.toHaveAttribute('readonly');
 
+    await user.clear(emailInput);
     await user.type(emailInput, 'new@example.com');
     await user.click(screen.getByRole('button', { name: 'Save' }));
 
@@ -32,6 +33,7 @@ describe('Profile page (BDD)', () => {
 
     await user.click(screen.getByRole('button', { name: 'Edit' }));
     const emailInput = screen.getByDisplayValue('admin@example.com');
+    await user.clear(emailInput);
     await user.type(emailInput, 'new@example.com');
     await user.click(screen.getByRole('button', { name: 'Cancel' }));
 
