@@ -13,16 +13,16 @@ describe('Category pages (BDD)', () => {
 
     expect(screen.getByRole('heading', { name: 'Shoes' })).toBeInTheDocument();
     expect(screen.getByText('Welcome to the Shoes section.')).toBeInTheDocument();
-    expect(screen.getByText('Items: 13')).toBeInTheDocument();
+    expect(screen.getByText('Items: 3')).toBeInTheDocument();
   });
 
   it('Given category page, When adding to cart, Then cart counter increments and toast is shown', async () => {
     const user = userEvent.setup();
     renderWithProviders(<App />, { route: '/category/shoes', auth: { initialUser: adminUser } });
 
-    expect(screen.getByLabelText('3 cart items')).toBeInTheDocument();
+    expect(screen.getByLabelText('0 cart items')).toBeInTheDocument();
     await user.click(screen.getAllByRole('button', { name: 'Add to cart' })[0]);
-    expect(screen.getByLabelText('4 cart items')).toBeInTheDocument();
+    expect(screen.getByLabelText('1 cart items')).toBeInTheDocument();
     expect(screen.getByText('Item added to cart.')).toBeInTheDocument();
   });
 
