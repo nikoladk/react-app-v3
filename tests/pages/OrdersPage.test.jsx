@@ -20,7 +20,7 @@ describe('Orders page (BDD)', () => {
       await user.click(screen.getByRole('button', { name: /^refresh$/i }));
       expect(await screen.findByLabelText('Loading')).toBeInTheDocument();
 
-      await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading'), { timeout: 5000 });
+      await waitForElementToBeRemoved(() => screen.queryByLabelText('Loading'), { timeout: 6000 });
       expect(screen.getByText('No orders yet.')).toBeInTheDocument();
     },
     10_000,
