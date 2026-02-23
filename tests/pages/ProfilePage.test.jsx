@@ -17,10 +17,11 @@ describe('Profile page (BDD)', () => {
     expect(emailInput).toHaveAttribute('readonly');
 
     await user.click(screen.getByRole('button', { name: 'Edit' }));
-    expect(emailInput).not.toHaveAttribute('readonly');
+    const editableEmailInput = screen.getByLabelText(/email/i);
+    expect(editableEmailInput).not.toHaveAttribute('readonly');
 
-    await user.clear(emailInput);
-    await user.type(emailInput, 'new@example.com');
+    await user.clear(editableEmailInput);
+    await user.type(editableEmailInput, 'new@example.com');
     await user.click(screen.getByRole('button', { name: 'Save' }));
 
     expect(screen.getByDisplayValue('new@example.com')).toBeInTheDocument();
