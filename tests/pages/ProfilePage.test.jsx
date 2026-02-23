@@ -32,7 +32,7 @@ describe('Profile page (BDD)', () => {
     renderWithProviders(<App />, { route: '/profile', auth: { initialUser: { username: 'admin', email: 'admin@example.com' } } });
 
     await user.click(screen.getByRole('button', { name: 'Edit' }));
-    const emailInput = screen.getByLabelText('Email');
+    const emailInput = screen.getByRole('textbox', { name: /email/i });
     await user.clear(emailInput);
     await user.type(emailInput, 'test@example.com');
     await user.click(screen.getByRole('button', { name: 'Cancel' }));

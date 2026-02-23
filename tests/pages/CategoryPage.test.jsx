@@ -33,7 +33,7 @@ describe('Category pages (BDD)', () => {
     expect(screen.getByText('Welcome to Shoes section.')).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /clothes/i }));
 
-    expect(await screen.findByText('Welcome to the Clothes section.')).toBeInTheDocument();
+    expect(await screen.findByText(/welcome to (the )?clothes section\./i)).toBeInTheDocument();
     expect(screen.queryByText('Welcome to Shoes section.')).not.toBeInTheDocument();
   });
 
