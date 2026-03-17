@@ -14,7 +14,7 @@ describe('Header (BDD)', () => {
     expect(screen.getByText(`Welcome, ${MOCK_USER.username}!`)).toBeInTheDocument();
     expect(screen.getByLabelText('3 notifications')).toBeInTheDocument();
 
-    expect(screen.getByRole('button', { name: 'Cart' })).toBeInTheDocument();
+    expect(screen.getByLabelText('Cart')).toBeInTheDocument();
     expect(screen.getByLabelText('2 cart items')).toBeInTheDocument();
   });
 
