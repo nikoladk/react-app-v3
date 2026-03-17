@@ -10,6 +10,6 @@ describe('SettingsPage (BDD)', () => {
     renderWithProviders(<App />, { route: '/settings', auth: { initialUser: MOCK_USER } });
 
     expect(screen.getByRole('heading', { name: 'Settings' })).toBeInTheDocument();
-    expect(screen.getByText('Mocked settings page')).toBeInTheDocument();
+    expect(screen.getByText('Mocked settings page.')).toBeInTheDocument();
   });
 });

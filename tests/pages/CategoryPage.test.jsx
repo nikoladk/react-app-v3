@@ -24,9 +24,9 @@ describe('Category pages (BDD)', () => {
       cart: { initialCount: 0 },
     });
 
-    expect(screen.getByLabelText('0 cart items')).toBeInTheDocument();
+    expect(screen.getByLabelText('Cart (0 items)')).toBeInTheDocument();
     await user.click(screen.getAllByRole('button', { name: 'Add to cart' })[0]);
-    expect(screen.getByLabelText('1 cart items')).toBeInTheDocument();
+    expect(screen.getByLabelText('Cart (1 items)')).toBeInTheDocument();
     expect(screen.getByText('Item added to cart.')).toBeInTheDocument();
   });
 
