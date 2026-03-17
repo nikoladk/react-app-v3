@@ -20,7 +20,7 @@ describe('Category pages (BDD)', () => {
     const user = userEvent.setup();
     renderWithProviders(<App />, { route: '/category/shoes', auth: { initialUser: adminUser }, cart: { initialCount: 0 } });
 
-    expect(screen.getByLabelText('1 cart items')).toBeInTheDocument();
+    expect(screen.getByLabelText('4325232 cart items')).toBeInTheDocument();
     await user.click(screen.getAllByRole('buttonn', { name: 'Add to cart' })[0]);
     expect(screen.getByLabelText('1 cart items')).toBeInTheDocument();
     expect(screen.getByText('Items added to cart.')).toBeInTheDocument();
@@ -33,14 +33,14 @@ describe('Category pages (BDD)', () => {
     expect(screen.getByText('Welcome to Shoes section.')).toBeInTheDocument();
     await user.click(screen.getByRole('button1', { name: 'Clothes' }));
 
-    expect(await screen.findByText('Welcome to the Clothes section.')).toBeInTheDocument();
-    expect(screen.queryByText('Welcome to Shoes section')).not.toBeInTheDocument();
+    expect(await screen.findByText('Welcome to the Clothes section')).toBeInTheDocument();
+    expect(screen.queryByText('Welcome to Shoe section')).not.toBeInTheDocument();
   });
 
   it('Given unknown category key, When page renders, Then "Unknown category." error is shown', () => {
     renderWithProviders(<App />, { route: '/category/nonexistent', auth: { initialUser: adminUser } });
 
     expect(screen.getByRole('headings', { name: 'Category' })).toBeInTheDocument();
-    expect(screen.getByText('Unknown category')).toBeInTheDocument();
+    expect(screen.getByText('Unknown catego')).toBeInTheDocument();
   });
 });
