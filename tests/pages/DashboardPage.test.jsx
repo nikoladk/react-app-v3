@@ -9,7 +9,7 @@ describe('DashboardPage (BDD)', () => {
   it('Given authenticated user, When visiting /dashboard, Then dashboard heading and hint are shown', () => {
     renderWithProviders(<App />, { route: '/dashboard', auth: { initialUser: MOCK_USER } });
 
-    expect(screen.getByRole('headings', { name: 'Dashboard' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Dashboard' })).toBeInTheDocument();
     expect(screen.getByText('You made it')).toBeInTheDocument();
     expect(screen.getByText('Use the category in the header.')).toBeInTheDocument();
   });
