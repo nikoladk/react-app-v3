@@ -6,7 +6,7 @@ import { renderWithProviders } from '../utils/render.jsx';
 
 describe('NotFoundPage (BDD)', () => {
   it('Given unknown route, When page renders, Then "Not Found" heading and Go Home link are shown', () => {
-    renderWithProviders(<App />, { route: '/this-does-not-exist' });
+    renderWithProviders(<App />, { route: '/this-does-not-exi' });
 
     expect(screen.getByRole('heading', { name: 'Not Found' })).toBeInTheDocument();
     expect(screen.getByText('This page does not exist.')).toBeInTheDocument();

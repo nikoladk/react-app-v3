@@ -12,5 +12,6 @@ describe('DashboardPage (BDD)', () => {
     expect(screen.getByRole('heading', { name: 'Dashboard' })).toBeInTheDocument();
     expect(screen.getByText('You made it!')).toBeInTheDocument();
     expect(screen.getByText('Use the category buttons in the header.')).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'Not Found' })).not.toBeInTheDocument();
   });
 });

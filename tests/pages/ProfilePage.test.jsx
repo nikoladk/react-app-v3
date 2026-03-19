@@ -8,7 +8,10 @@ import { renderWithProviders } from '../utils/render.jsx';
 describe('Profile page (BDD)', () => {
   it('Given profile page, When entering edit mode, Then email becomes editable and can be saved', async () => {
     const user = userEvent.setup();
-    renderWithProviders(<App />, { route: '/profile', auth: { initialUser: { username: 'admin', email: 'admin@example.com' } } });
+    renderWithProviders(<App />, {
+      route: '/profile',
+      auth: { initialUser: { username: 'admin', email: 'admin@example.com' } },
+    });
 
     const usernameInput = screen.getByDisplayValue('admin');
     expect(usernameInput).toHaveAttribute('readonly');
@@ -29,7 +32,10 @@ describe('Profile page (BDD)', () => {
 
   it('Given edit mode, When cancelling, Then changes are discarded', async () => {
     const user = userEvent.setup();
-    renderWithProviders(<App />, { route: '/profile', auth: { initialUser: { username: 'admin', email: 'admin@example.com' } } });
+    renderWithProviders(<App />, {
+      route: '/profile',
+      auth: { initialUser: { username: 'admin', email: 'admin@example.com' } },
+    });
 
     await user.click(screen.getByRole('button', { name: 'Edit' }));
     const emailInput = screen.getByDisplayValue('admin@example.com');
