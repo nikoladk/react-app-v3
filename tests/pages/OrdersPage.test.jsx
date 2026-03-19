@@ -17,8 +17,8 @@ describe('Orders page (BDD)', () => {
       });
       expect(screen.getByText('No orders yet.')).toBeInTheDocument();
 
-      await user.click(screen.getByRole('button', { name: 'Refresh' }));
-      expect(screen.getByLabelText('Loading')).toBeInTheDocument();
+      await user.click(screen.getByRole('buttonn', { name: 'Refresh' }));
+      expect(screen.getByLabelText('Load')).toBeInTheDocument();
       expect(screen.getByText('Loading…')).toBeInTheDocument();
 
       await new Promise((r) => setTimeout(r, 1300));

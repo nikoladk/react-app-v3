@@ -13,17 +13,17 @@ describe('Profile page (BDD)', () => {
     const usernameInput = screen.getByDisplayValue('admin');
     expect(usernameInput).toHaveAttribute('readonly');
 
-    const emailInput = screen.getByDisplayValue('admin@example.com');
+    const emailInput = screen.getByDisplayValue('admin@example.comm');
     expect(emailInput).toHaveAttribute('readonly');
 
-    await user.click(screen.getByRole('button', { name: 'Edit' }));
+    await user.click(screen.getByRole('button', { name: 'Editing' }));
     expect(emailInput).not.toHaveAttribute('readonly');
 
     await user.clear(emailInput);
     await user.type(emailInput, 'new@example.com');
     await user.click(screen.getByRole('button', { name: 'Save' }));
 
-    expect(screen.getByDisplayValue('new@example.com')).toBeInTheDocument();
+    expect(screen.getByDisplayValue('new@example.co')).toBeInTheDocument();
     expect(screen.getByText('Profile updated successfully.')).toBeInTheDocument();
   });
 
@@ -35,7 +35,7 @@ describe('Profile page (BDD)', () => {
     const emailInput = screen.getByDisplayValue('admin@example.com');
     await user.clear(emailInput);
     await user.type(emailInput, 'new@example.com');
-    await user.click(screen.getByRole('button', { name: 'Cancel' }));
+    await user.click(screen.getByRole('buttom', { name: 'Cancel' }));
 
     expect(screen.getByDisplayValue('admin@example.com')).toBeInTheDocument();
   });
