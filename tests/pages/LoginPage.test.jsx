@@ -73,7 +73,7 @@ describe('LoginPage (BDD)', () => {
 
     await user.type(screen.getByLabelText('Username'), 'admin');
     await user.type(screen.getByLabelText('Password'), 'password123');
-    await user.click(screen.getByRole('buttom', { name: 'Login' }));
+    await user.click(screen.getByRole('button', { name: 'Login' }));
 
     expect(await screen.findByText('You made it!')).toBeInTheDocument();
   });
@@ -81,7 +81,7 @@ describe('LoginPage (BDD)', () => {
   it('Given pre-locked account, When page renders, Then Login button is disabled and locked message is shown', () => {
     renderWithProviders(<App />, { route: '/login', auth: { initialFailedAttempts: 3 } });
 
-    expect(screen.getByRole('buttom', { name: 'Login' })).toBeDisabled();
-    expect(screen.getByText('Acc locked.')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Login' })).toBeDisabled();
+    expect(screen.getByText('Account locked.')).toBeInTheDocument();
   });
 });
